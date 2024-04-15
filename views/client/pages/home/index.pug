@@ -1,0 +1,148 @@
+extends ../../layouts/default.pug
+block main 
+  main.container.home
+    // Slideshow
+    .home__container
+      .swiper.mySwiper
+        .swiper-wrapper
+          .swiper-slide
+            img.slideshow__img(src='https://scontent.fhan14-3.fna.fbcdn.net/v/t39.30808-6/365896155_303831395501379_8194046366209516799_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eYjZNa8KPC8Ab4gcy2G&_nc_ht=scontent.fhan14-3.fna&oh=00_AfD3M1DxMIZdm2IJq8A6v9RvETMWv9DS1T98v8snsathrg&oe=662261F0' alt='')
+          .swiper-slide
+            img.slideshow__img(src='/images/1.png' alt='')
+          .swiper-slide
+            img.slideshow__img(src='https://scontent.fhan14-3.fna.fbcdn.net/v/t39.30808-6/365896155_303831395501379_8194046366209516799_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eYjZNa8KPC8Ab4gcy2G&_nc_ht=scontent.fhan14-3.fna&oh=00_AfD3M1DxMIZdm2IJq8A6v9RvETMWv9DS1T98v8snsathrg&oe=662261F0' alt='')
+          .swiper-slide
+            img.slideshow__img(src='https://scontent.fhan14-3.fna.fbcdn.net/v/t39.30808-6/365896155_303831395501379_8194046366209516799_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eYjZNa8KPC8Ab4gcy2G&_nc_ht=scontent.fhan14-3.fna&oh=00_AfD3M1DxMIZdm2IJq8A6v9RvETMWv9DS1T98v8snsathrg&oe=662261F0' alt='')
+          .swiper-button-next(style="display:none")
+          .swiper-button-prev(style="display:none")
+          .swiper-pagination(style="display:none")
+          .autoplay-progress(style="display:none")
+            svg(viewbox='0 0 48 48')
+              circle(cx='24' cy='24' r='20')
+            span
+
+
+        //- .slideshow__inner
+        //-   .slideshow__item
+        //-     a.slideshow__link(href='#!')
+        //-       picture
+        //-         source(media='(max-width: 767.98px)' srcset='./assets/img/slideshow/item-1-md.png')
+        //-         img.slideshow__img(src='https://scontent.fhan14-3.fna.fbcdn.net/v/t39.30808-6/365896155_303831395501379_8194046366209516799_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=eYjZNa8KPC8Ab4gcy2G&_nc_ht=scontent.fhan14-3.fna&oh=00_AfD3M1DxMIZdm2IJq8A6v9RvETMWv9DS1T98v8snsathrg&oe=662261F0' alt='')
+        //- .slideshow__page
+        //-   span.slideshow__num 1
+        //-   span.slideshow__slider
+        //-   span.slideshow__num 5
+    // Browse Categories
+    section.home__container
+      .home__row
+        h2.home__heading Browse Categories
+      .home__cate.row.row-cols-3.row-cols-md-1
+        // Category item 1
+        .col
+          a(href='#!')
+            article.cate-item
+              img.cate-item__thumb(src='./assets/img/category-item/item-1.png' alt='')
+              .cate-item__info
+                h3.cate-item__title $24 - $150
+                p.cate-item__desc
+                  | New sumatra mandeling coffe blend
+        // Category item 2
+        .col
+          a(href='#!')
+            article.cate-item
+              img.cate-item__thumb(src='./assets/img/category-item/item-2.png' alt='')
+              .cate-item__info
+                h3.cate-item__title $37 - $160
+                p.cate-item__desc
+                  | Espresso arabica and robusta beans
+        // Category item 3
+        .col
+          a(href='#!')
+            article.cate-item
+              img.cate-item__thumb(src='./assets/img/category-item/item-3.png' alt='')
+              .cate-item__info
+                h3.cate-item__title $32 - $160
+                p.cate-item__desc
+                  | Lavazza top class whole bean coffee blend
+    // Browse Products
+    section.home__container
+      .home__row
+        h2.home__heading Sản phẩm hot 2023
+        .filter-wrap
+          button.filter-btn.js-toggle(toggle-target='#home-filter')
+            | Filter
+            img.filter-btn__icon.icon(src='./assets/icons/filter.svg' alt='')
+          #home-filter.filter.hide
+            img.filter__arrow(src='./assets/icons/arrow-up.png' alt='')
+            h3.filter__heading Filter
+            form.filter__form.form(action='')
+              .filter__row.filter__content
+                // Filter column 1
+                .filter__col
+                  label.form__label(for='') Price
+                  .filter__form-group
+                    .filter__form-slider(style='--min-value: 10%; --max-value: 60%')
+                  .filter__form-group.filter__form-group--inline
+                    div
+                      label.form__label.form__label--small(for='')
+                        | Minimum
+                      .filter__form-text-input.filter__form-text-input--small
+                        input.filter__form-input(type='text' name='' id='' value='$30.00')
+                    div
+                      label.form__label.form__label--small(for='')
+                        | Maximum
+                      .filter__form-text-input.filter__form-text-input--small
+                        input.filter__form-input(type='text' name='' id='' value='$100.00')
+                .filter__separate
+                // Filter column 2
+                .filter__col
+                  label.form__label(for='') Size/Weight
+                  .filter__form-group
+                    .form__select-wrap
+                      .form__select(style='--width: 158px')
+                        | 500g
+                        img.form__select-arrow.icon(src='./assets/icons/select-arrow.svg' alt='')
+                      .form__select
+                        | Gram
+                        img.form__select-arrow.icon(src='./assets/icons/select-arrow.svg' alt='')
+                  .filter__form-group
+                    .form__tags
+                      button.form__tag Small
+                      button.form__tag Medium
+                      button.form__tag Large
+                .filter__separate
+                // Filter column 3
+                .filter__col
+                  label.form__label(for='') Brand
+                  .filter__form-group
+                    .filter__form-text-input
+                      input.filter__form-input(type='text' name='' id='' placeholder='Search brand name')
+                      img.filter__form-input-icon.icon(src='./assets/icons/search.svg' alt='')
+                  .filter__form-group
+                    .form__tags
+                      button.form__tag Lavazza
+                      button.form__tag Nescafe
+                      button.form__tag Starbucks
+              .filter__row.filter__footer
+                button.btn.btn--text.filter__cancel.js-toggle(toggle-target='#home-filter')
+                  | Cancel
+                button.btn.btn--primary.filter__submit.js-toggle(toggle-target='#home-filter')
+                  | Show Result
+      .row.row-cols-5.row-cols-lg-2.row-cols-sm-1.g-3
+        each product in products 
+          .col
+            article.product-card
+              .product-card__img-wrap
+                a(href=`/products/detail/${product.slug}`)
+                  img.product-card__thumb(src=product.thumbnail, alt=product.title)
+                button.like-btn.product-card__like-btn
+                  img.like-btn__icon.icon(src='/icons/heart.svg' alt='')
+                  img.like-btn__icon--liked(src='/icons/heart-red.svg' alt='')
+              h3.product-card__title
+                a(href='./product-detail.html') #{product.title}
+              p.product-card__brand #{product.description}
+              .product-card__row
+                span.product-card__price #{product.price}$
+                img.product-card__star(src='/icons/star.svg' alt='')
+                span.product-card__score 4.3
+        

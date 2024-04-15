@@ -1,0 +1,24 @@
+doctype html
+html.dark
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title #{pageTitle}
+    // Favicon
+    
+    //- link(rel='manifest' href='./assets/favicon/site.webmanifest')
+    link(rel='icon' type='image/png' sizes='32x32' href='/images/Mascot 01.png')
+    meta(name='msapplication-TileColor' content='#da532c')
+    meta(name='theme-color' content='#ffffff')
+    // Fonts
+    link(rel='stylesheet' href='/fonts/stylesheet.css')
+    // Styles
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css')
+    link(rel='stylesheet' href='/css/style.css')
+
+  body 
+    include ../partials/header.pug
+    block main 
+    include ../partials/footer.pug
+    script(src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js")
+    script(src="/js/script.js") 
