@@ -1,0 +1,30 @@
+sider.app-sider
+  .information 
+    .information__avatar 
+      img(src="https://i.pinimg.com/736x/77/a7/f5/77a7f524ada895c20b635140d53b4504.jpg", alt="Looxi", srcset="")
+    .information_name 
+      | Nguyễn Đức Thuận
+    .information__title 
+      | Chào mừng bạn quay lại
+  .list
+    ul.list__management
+      li.list__management--product
+        a(href=`/${prefixAdmin}/products`) 
+          i.fa-solid.fa-boxes-packing
+          p.title
+          | Sản phẩm
+      li.list__management--order
+        a(href=`/${prefixAdmin}/orders`) 
+          i.fa-solid.fa-cart-flatbed
+          p.title
+          | Đơn hàng
+      li.list__management--profit
+        a(href=`/${prefixAdmin}/profit`) 
+          i.fa-solid.fa-sack-dollar
+          p.title 
+          | Doanh thu
+      li.list__management--settingGenerals
+        a(href=`/${prefixAdmin}/settings`) 
+          i.fa-solid.fa-gears
+          p.title
+          | Cài đặt chung

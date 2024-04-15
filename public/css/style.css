@@ -1559,7 +1559,7 @@ html {
   z-index: 1;
   padding: 20px 0;
 }
-.logo__img.top-bar__logo-img {
+.logo__img {
   width: 50px;
   border-radius: 50%;
 }

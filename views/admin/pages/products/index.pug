@@ -1,0 +1,23 @@
+extends ../../layouts/default.pug
+include ../../mixins/title.pug
+block main 
+  +app-title("Quản lý sản phẩm")
+  div(
+    class= "shadow-lg p-2 bg-white rounded"
+    products-table
+  )
+    .products-actions
+      .createProduct.products-actions-detail 
+        i.fa-regular.fa-square-plus
+        p.title Tạo sản phẩm mới
+      .printProduct.products-actions-detail  
+        i.fa-solid.fa-print
+        p.title In dữ liệu
+      .exportExcel.products-actions-detail  
+        i.fa-solid.fa-copy
+        p.title Copy dữ liệu
+      .removeAll.products-actions-detail  
+        i.fa-solid.fa-trash
+        p.title Xóa tất cả
+    .products-table
+    

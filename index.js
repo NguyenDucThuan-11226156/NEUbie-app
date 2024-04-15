@@ -3,12 +3,14 @@ const dotenv = require("dotenv");
 const methodOverride = require("method-override");
 const path = require("path");
 const routesClient = require("./routes/client/index.route");
+const routesAdmin = require("./routes/admin/index.route");
 const bodyParser = require("body-parser");
 const flash = require("express-flash");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const moment = require("moment");
 const database = require("./config/database");
+const system = require("./config/system");
 dotenv.config();
 database.connectDatabase();
 const app = express();
@@ -29,10 +31,12 @@ app.use(cookieParser("Dat Gi cung duoc"));
 app.use(session({ cookie: { maxAge: 60000 } }));
 app.use(flash());
 //end flash
+
 // app Local
 app.locals.moment = moment;
+app.locals.prefixAdmin = system.prefixAdmin;
 //routes admin
-// routesAdmin(app);
+routesAdmin(app);
 //routes client
 routesClient(app);
 // 404 Not Found
