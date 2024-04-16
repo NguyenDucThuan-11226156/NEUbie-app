@@ -14,12 +14,12 @@ const system = require("./config/system");
 dotenv.config();
 database.connectDatabase();
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 app.set("views", `${__dirname}/views`);
 app.set("view engine", "pug");
 app.use(methodOverride("_method"));
 app.use(express.static(`${__dirname}/public`));
-
+app.use(methodOverride("_method"));
 app.use(
   "/tinymce",
   express.static(path.join(__dirname, "node_modules", "tinymce"))

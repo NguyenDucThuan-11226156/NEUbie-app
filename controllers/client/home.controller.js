@@ -5,6 +5,7 @@ module.exports.index = async (req, res) => {
     status: "active",
     deleted: false,
   });
+
   res.render("client/pages/home/index", {
     pageTitle: "Home",
     products: products,

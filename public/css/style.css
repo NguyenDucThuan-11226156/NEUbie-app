@@ -2629,7 +2629,7 @@ html {
 .product-card__like-btn {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -43px;
 }
 .product-card__title {
   margin-top: 16px;

@@ -1,0 +1,71 @@
+extends ../../layouts/default.pug
+include ../../mixins/title.pug
+block main 
+  +app-title("Tạo sản phẩm")
+  div(
+    class= "shadow-lg p-2 bg-white rounded"
+    products-create-table
+  )
+    form(
+      action=`/${prefixAdmin}/products/create`
+      class="products-create-form"
+      method="POST"
+      enctype="multipart/form-data"
+    )
+      .row 
+        .col-3
+          p.title Tên sản phẩm
+          input(type="text" name="title" nameProduct)
+        .col-3
+          p.title Giá
+          input(type="number" name ="price" price)
+        .col-3
+          p.title Phần trăm giảm giá
+          input(type="number" name="discountPercentage" discount)
+        .col-3
+          p.title Số lượng
+          input(type="number" name="stock" stock)
+      .row 
+        .col-3
+          p.title Tình trạng
+          select.selectStatus(aria-label='Default select example' name = "status")
+            option(selected='') Open this select menu
+            option(value='active') Còn hàng
+            option(value='inactive') Hết hàng
+      .row 
+        .col-3 
+          div(class="form-group" upload-image)
+            p.title Ảnh
+            label(for="uploadFile" labelUpload)
+              | Chọn ảnh
+            input(
+              type="file",
+              class="inputImage"
+              accept="image/*"
+              upload-image-input
+              name="thumbnail"
+              id="uploadFile"
+            )
+            img(
+              src=""
+              class="image-preview"
+              upload-image-preview
+            )
+      .row 
+        .col 
+          p.title Mổ tả sản phẩm
+          textarea(
+          class="form-control"
+          id="desc"
+          name="description"
+          rows="5"
+          textarea-mce
+          )
+      .row 
+        .col 
+          button(type="submit" btn-create) Tạo mới
+          a(href="/admin/products" class="backProduct") Quay về 
+
+
+        
+

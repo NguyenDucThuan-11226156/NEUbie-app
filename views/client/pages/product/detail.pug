@@ -8,23 +8,6 @@ block main
           input.search-bar__input(type='text' name='' id='' placeholder='Search for item')
           button.search-bar__submit
             img.search-bar__icon.icon(src='./assets/icons/search.svg' alt='')
-      // Breadcrumbs
-      .product-container
-        ul.breadcrumbs
-          li
-            a.breadcrumbs__link(href='#!')
-              | Departments
-              img(src='./assets/icons/arrow-right.svg' alt='')
-          li
-            a.breadcrumbs__link(href='#!')
-              | Coffee
-              img(src='./assets/icons/arrow-right.svg' alt='')
-          li
-            a.breadcrumbs__link(href='#!')
-              | Coffee Beans
-              img(src='./assets/icons/arrow-right.svg' alt='')
-          li
-            a.breadcrumbs__link.breadcrumbs__link--current(href='#!') LavAzza
       // Product info
       .product-container.prod-info-content
         .row
@@ -32,7 +15,7 @@ block main
             .prod-preview
               .prod-preview__list
                 .prod-preview__item
-                  img.prod-preview__img(src='./assets/img/product/item-1.png' alt='')
+                  img.prod-preview__img(src=product.thumbnail alt='')
                 .prod-preview__item
                   img.prod-preview__img(src='./assets/img/product/item-2.png' alt='')
                 .prod-preview__item
@@ -40,15 +23,14 @@ block main
                 .prod-preview__item
                   img.prod-preview__img(src='./assets/img/product/item-4.png' alt='')
               .prod-preview__thumbs
-                img.prod-preview__thumb-img.prod-preview__thumb-img--current(src='./assets/img/product/item-1.png' alt='')
+                img.prod-preview__thumb-img.prod-preview__thumb-img--current(src=product.thumbnail alt='')
                 img.prod-preview__thumb-img(src='./assets/img/product/item-2.png' alt='')
                 img.prod-preview__thumb-img(src='./assets/img/product/item-3.png' alt='')
                 img.prod-preview__thumb-img(src='./assets/img/product/item-4.png' alt='')
           .col-7.col-xl-6.col-lg-12
             form.form(action='')
               section.prod-info
-                h1.prod-info__heading
-                  | Coffee Beans - Espresso Arabica and Robusta Beans
+                h1.prod-info__heading #{product.title}
                 .row
                   .col-5.col-xxl-6.col-xl-12
                     .prod-prop
@@ -88,9 +70,9 @@ block main
                           p.prod-prop__desc Out of 2 store, today
                       .prod-info__card
                         .prod-info__row
-                          span.prod-info__price $500.00
-                          span.prod-info__tax 10%
-                        p.prod-info__total-price $540.00
+                          span.prod-info__price #{product.price}
+                          span.prod-info__tax - #{product.discountPercentage} %
+                        p.prod-info__total-price #{product.priceNew}
                         .prod-info__row
                           button.btn.btn--primary.prod-info__add-to-cart
                             | Add to cart

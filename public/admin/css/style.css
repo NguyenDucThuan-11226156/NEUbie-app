@@ -119,7 +119,17 @@ header {
   width: 100%;
   height: 50px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+header a:hover {
+  text-decoration: none;
+  color: rgb(0, 28, 64);
+}
+header img {
+  margin-top: 5px;
+  margin-left: 20px;
+  height: 40px;
+  width: auto;
 }
 .fa-solid.fa-right-from-bracket {
   display: flex;
@@ -174,26 +184,203 @@ header {
   font-weight: bold;
 }
 .createProduct {
+  cursor: pointer;
   background: #9df99d;
   color: #003c00;
   padding: 0 8px 0 8px;
   border-radius: 7px;
 }
 .printProduct {
+  cursor: pointer;
   background: #bfbeef;
   color: #03009a;
   padding: 0 8px 0 8px;
   border-radius: 7px;
 }
 .exportExcel {
+  cursor: pointer;
   background: #d0d0d0;
   padding: 0 8px 0 8px;
   border-radius: 7px;
 }
 .removeAll {
+  cursor: pointer;
   background: #efcaca;
   color: #bf0000;
   padding: 0 8px 0 8px;
   border-radius: 7px;
 }
+.products-search {
+  display: flex;
+  justify-content: flex-end;
+}
+.products-search_button {
+  margin-top: 10px;
+  font-weight: 600;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  color: black;
+  padding: 10px;
+}
+.products-search_button label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+.products-search_button input {
+  background-color: #f1f1f1;
+  border-radius: 7px;
+  border: 1px solid #dadada;
+}
+.products-search_button:focus input {
+  background-color: white;
+}
+.products-table {
+  margin-top: 10px;
+}
 /* End Product */
+.btn-remove {
+  background: #f7c3c2;
+  border: none;
+  color: #de0400;
+  border-radius: 7px;
+  padding: 5px 10px;
+}
+.btn-edit {
+  margin-left: 5px;
+  color: rgb(245 157 57);
+  background-color: rgb(251 226 197);
+  border-radius: 7px;
+  border: none;
+  padding: 5px 10px;
+}
+[products-create-table] {
+  margin-top: 30px;
+  margin-left: 5px;
+  margin-right: 5px;
+  min-height: 500px;
+}
+[products-create-table] .products-create-form .title {
+  font-weight: bold;
+  color: black;
+}
+[products-create-table] .products-create-form input[nameProduct],
+input[price],
+input[discount],
+input[stock],
+input[status] {
+  color: black;
+  background-color: #f1f1f1;
+  height: 45px;
+  border: 1px solid #dadada;
+  border-radius: 7px;
+  width: 100%;
+}
+[upload-image-input] {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+[labelUpload] {
+  display: block;
+  background: #14142b;
+  border: 1px solid #fff;
+  color: #fff;
+  width: 150px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 5px 0px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+[btn-create],
+[btn_update_product] {
+  margin-top: 10px;
+  background-color: rgb(166 236 171);
+  color: rgb(1 123 10);
+  font-weight: 600;
+  border: none;
+  border-radius: 7px;
+  padding: 5px 10px;
+}
+/* Image Preview */
+.image-preview {
+  width: 150px;
+  height: auto;
+  margin-top: 15px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.image-preview[src=""] {
+  display: none;
+}
+/* End Image Preview */
+/* Show Alert */
+[show-alert] {
+  position: fixed;
+  top: 70px;
+  right: 15px;
+  z-index: 9999;
+}
+
+[show-alert].alert-hidden {
+  animation-name: alert-hidden;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes alert-hidden {
+  from {
+    right: 15px;
+  }
+  to {
+    right: -100%;
+    display: none;
+  }
+}
+
+[show-alert] [close-alert] {
+  background: #ffffffc4;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  font-weight: 600;
+  border-radius: 50%;
+  cursor: pointer;
+}
+/* End Show Alert */
+.backProduct {
+  text-decoration: none;
+  color: black;
+  margin-left: 5px;
+  background-color: #ddd;
+  padding: 6px 12px;
+  border-radius: 7px;
+}
+.backProduct:hover {
+  text-decoration: none;
+}
+.selectStatus {
+  height: 40px;
+  font-size: 15px;
+  display: block;
+  width: 100%;
+  line-height: 1.5;
+  color: black;
+  background-color: rgb(241, 241, 241);
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(218, 218, 218);
+  border-radius: 7px;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s,
+    -webkit-box-shadow 0.15s ease-in-out 0s;
+}
+[thumbnailProduct] {
+  height: 60px;
+  width: 80px;
+  object-fit: contain;
+}

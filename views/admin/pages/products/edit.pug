@@ -1,0 +1,72 @@
+extends ../../layouts/default.pug
+include ../../mixins/title.pug
+block main 
+  +app-title("Chỉnh sửa sản phẩm")
+  div(
+    class= "shadow-lg p-2 bg-white rounded"
+    products-create-table
+  )
+    form(
+      products-update-form
+      action=`/${prefixAdmin}/products/edit/${product._id}?_method=PATCH`
+      class="products-create-form"
+      method="POST"
+      enctype="multipart/form-data"
+    )
+      .row 
+        .col-3
+          p.title Tên sản phẩm
+          input(type="text" name="title" nameProduct value= product.title)
+        .col-3
+          p.title Giá
+          input(type="number" name ="price" price value=product.price )
+        .col-3
+          p.title Phần trăm giảm giá
+          input(type="number" name="discountPercentage" discount value=product.discountPercentage)
+        .col-3
+          p.title Số lượng
+          input(type="number" name="stock" stock value=product.stock)
+      .row 
+        .col-3
+          p.title Tình trạng
+          select.selectStatus(aria-label='Default select example', name='status')
+            option(value='active', selected=(product.status === 'active' ? true : false)) Còn hàng
+            option(value='inactive', selected=(product.status === 'inactive' ? true : false)) Hết hàng
+
+      .row 
+        .col-3 
+          div(class="form-group" upload-image)
+            p.title Ảnh
+            label(for="uploadFile" labelUpload)
+              | Chọn ảnh
+            input(
+              type="file",
+              class="inputImage"
+              accept="image/*"
+              upload-image-input
+              name="thumbnail"
+              id="uploadFile"
+            )
+            img(
+              src=product.thumbnail
+              class="image-preview"
+              upload-image-preview
+            )
+      .row 
+        .col 
+          p.title Mổ tả sản phẩm
+          textarea(
+          class="form-control"
+          id="desc"
+          name="description"
+          rows="5"
+          textarea-mce
+          ) !{product.description}
+      .row 
+        .col 
+          button(type="submit" btn_update_product) Lưu
+          a(href="/admin/products" class="backProduct") Quay về 
+
+
+        
+

@@ -1,6 +1,8 @@
 extends ../../layouts/default.pug
 include ../../mixins/title.pug
-block main 
+include ../../mixins/alert.pug
+block main
+  +alert-success(5000)
   +app-title("Quản lý sản phẩm")
   div(
     class= "shadow-lg p-2 bg-white rounded"
@@ -19,5 +21,43 @@ block main
       .removeAll.products-actions-detail  
         i.fa-solid.fa-trash
         p.title Xóa tất cả
+    .products-search 
+      .products-search_button
+        label 
+          | Tìm kiếm 
+        input(
+          class="products-search__input"
+          )
+
     .products-table
-    
+      table.table.table-hover
+        thead.table-active
+          tr
+            th(scope='col') STT
+            th(scope='col') Tên sản phẩm
+            th(scope='col') Ảnh
+            th(scope='col') Số lượng
+            th(scope='col') Tình trạng
+            th(scope='col') Giá tiền
+            th(scope='col') Chức năng
+        tbody
+          each product,index in products
+            tr
+              th(scope='row') #{index+1}
+              td #{product.title}
+              td 
+                img(thumbnailProduct src=product.thumbnail, alt=product.title, srcset="")
+              td #{product.stock}
+              td #{product.status === "active" ? "Còn hàng" : "Hết hàng"}
+              td #{product.priceNew}
+              td 
+                button(
+                  class="btn-remove"
+                  product_id = product._id
+                ) 
+                  i.fa-solid.fa-trash
+                button(
+                  class="btn-edit"
+                  product_id = product._id
+                ) 
+                  i.fa-solid.fa-pen-to-square
