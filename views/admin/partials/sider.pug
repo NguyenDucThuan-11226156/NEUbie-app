@@ -29,7 +29,12 @@ sider.app-sider
           p.title
           | Cài đặt chung
       li.list__management--settingGenerals
-        a(href=`/${prefixAdmin}/createAdmin`) 
+        a(href=`/${prefixAdmin}/auth/createAdmin`) 
           i.fa-solid.fa-gears
           p.title
           | Tạo tài khoản
+      li.list__management--settingGenerals
+        a(href=`/${prefixAdmin}/roles`) 
+          i.fa-solid.fa-gears
+          p.title
+          | Quản lý role

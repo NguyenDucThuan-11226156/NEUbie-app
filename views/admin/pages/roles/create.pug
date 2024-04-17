@@ -1,0 +1,32 @@
+extends ../../layouts/default.pug
+include ../../mixins/title.pug
+block main 
+  +app-title("Tạo mới vai trò")
+  div(
+    class= "shadow-lg p-2 bg-white rounded"
+    products-create-table
+  )
+    form(
+      action=`/${prefixAdmin}/roles/create`
+      class="products-create-form"
+      method="POST"
+    )
+      .row 
+        .col-4
+          p.title Tên vai trò
+          input(type="text" name="title" nameProduct)
+        .col-4
+          p.title Chức năng
+          input(type="text" name ="permissions" price disabled)
+        .col-4
+          p.title Miêu tả
+          input(type="text" name="description" discount)
+   
+      .row 
+        .col 
+          button(type="submit" btn-create) Tạo mới
+          a(href=`/${prefixAdmin}/roles` class="backProduct") Quay về 
+
+
+        
+

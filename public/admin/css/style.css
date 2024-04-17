@@ -183,7 +183,8 @@ header img {
   margin-left: 5px;
   font-weight: bold;
 }
-.createProduct {
+.createProduct,
+.createRoles {
   cursor: pointer;
   background: #9df99d;
   color: #003c00;

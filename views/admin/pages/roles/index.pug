@@ -1,0 +1,43 @@
+extends ../../layouts/default.pug
+include ../../mixins/title.pug
+include ../../mixins/alert.pug
+block main 
+  +alert-success(5000)
+  +app-title("Quản lý vai trò")
+  div(
+    class= "shadow-lg p-2 bg-white rounded"
+    products-table
+  )
+    .products-actions
+      .createRoles.products-actions-detail
+        i.fa-regular.fa-square-plus
+        a(href=`/${prefixAdmin}/roles/create`) 
+          p.title Tạo vai trò mới
+      .printProduct.products-actions-detail  
+        i.fa-solid.fa-print
+        p.title In dữ liệu
+      .exportExcel.products-actions-detail  
+        i.fa-solid.fa-copy
+        p.title Copy dữ liệu
+      .removeAll.products-actions-detail  
+        i.fa-solid.fa-trash
+        p.title Xóa tất cả
+    .products-search 
+      .products-search_button
+        label 
+          | Tìm kiếm 
+        input(
+          class="products-search__input"
+          )
+    .products-table
+      table.table.table-hover
+        thead.table-active
+          tr
+            th(scope='col') STT
+            th(scope='col') Tên vai trò
+            th(scope='col') Miêu tả
+        tbody
+          tr 
+            td 1
+            td Quản trị viên
+            td Quản lý bán hàng
