@@ -8,7 +8,7 @@ module.exports.configLoginWithGoogle = () => {
       {
         clientID: process.env.GOOGLE_APP_CLIENT_ID,
         clientSecret: process.env.GOOGLE_APP_CLIENT_SECRET,
-        callbackURL: "http://localhost:3000/google/redirect",
+        callbackURL: `${process.env.DOMAIN}/google/redirect`,
       },
       async function (accessToken, refreshToken, profile, cb) {
         const type = "GOOGLE";
