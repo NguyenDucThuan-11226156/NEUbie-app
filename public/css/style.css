@@ -1692,6 +1692,7 @@ html {
   }
 }
 .navbar__link {
+  display: none;
   gap: 6px;
   height: 50px;
   padding: 0 15px;
@@ -1780,6 +1781,7 @@ html {
   position: relative;
 }
 .top-act__user:hover .act-dropdown {
+  z-index: 999;
   display: block;
 }
 .top-act__avatar {
@@ -1828,6 +1830,7 @@ html {
   display: none;
 }
 .act-dropdown__inner {
+  z-index: 999;
   position: relative;
   padding: 30px;
   border-radius: 20px;
@@ -2155,6 +2158,7 @@ html {
   }
 }
 .dropdown__inner {
+  z-index: 999;
   --inner-padding: 30px;
   position: relative;
   padding: var(--inner-padding);
@@ -2320,10 +2324,12 @@ html {
 
 .slideshow {
   position: relative;
+  border-radius: 20px;
 }
 .slideshow__inner {
   display: flex;
   overflow: hidden;
+  border-radius: 20px;
 }
 .slideshow__item {
   position: relative;
@@ -2371,6 +2377,16 @@ html {
   height: 100%;
 }
 
+.swiper.mySwiper {
+  position: relative;
+  z-index: 1 !important; /* Set a lower z-index value */
+  border-radius: 20px;
+}
+.slideshow {
+  position: relative;
+  z-index: 1 !important; /* Set a lower z-index value */
+  border-radius: 20px;
+}
 .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -2378,9 +2394,11 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 20px;
 }
 
 .swiper-slide img {
+  border-radius: 20px;
   display: block;
   width: 100%;
   height: 100%;

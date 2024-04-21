@@ -2341,6 +2341,131 @@
                             a.menu-column__link(href='#!') Skincare
     .navbar__overlay.js-toggle(toggle-target='#navbar')
     // Actions
-    .top-act
-      a.btn.btn--text.d-md-none(href='./sign-in.html') Sign In
-      a.top-act__sign-up.btn.btn--primary(href='./sign-up.html') Sign Up
+    if !user
+      .top-act
+        a.btn.btn--text.d-md-none(href='/login') Sign In
+        a.top-act__sign-up.btn.btn--primary(href='./sign-up.html') Sign Up
+    else 
+      .top-act
+        .top-act__group.d-md-none.top-act__group--single
+          button.top-act__btn
+            img.icon.top-act__icon(src='./assets/icons/search.svg', alt='')
+        .top-act__group.d-md-none
+          .top-act__btn-wrap
+            button.top-act__btn
+              img.icon.top-act__icon(src='./assets/icons/heart.svg', alt='')
+              span.top-act__title 03
+            // Dropdown
+            .act-dropdown
+              .act-dropdown__inner
+                img.act-dropdown__arrow(src='./assets/icons/arrow-up.png', alt='')
+                .act-dropdown__top
+                  h2.act-dropdown__title You have 3 item(s)
+                  a.act-dropdown__view-all(href='./favourite.html') See All
+                .row.row-cols-3.gx-2.act-dropdown__list
+                  // Cart preview item 1
+                  .col
+                    article.cart-preview-item
+                      .cart-preview-item__img-wrap
+                        img.cart-preview-item__thumb(src='./assets/img/product/item-1.png', alt='')
+                      h3.cart-preview-item__title
+                        | Lavazza Coffee Blends
+                      p.cart-preview-item__price $329.00
+                  // Cart preview item 2
+                  .col
+                    article.cart-preview-item
+                      .cart-preview-item__img-wrap
+                        img.cart-preview-item__thumb(src='./assets/img/product/item-2.png', alt='')
+                      h3.cart-preview-item__title
+                        | Coffee Beans Espresso
+                      p.cart-preview-item__price $39.99
+                  // Cart preview item 3
+                  .col
+                    article.cart-preview-item
+                      .cart-preview-item__img-wrap
+                        img.cart-preview-item__thumb(src='./assets/img/product/item-3.png', alt='')
+                      h3.cart-preview-item__title
+                        | Qualit&agrave; Oro Mountain
+                      p.cart-preview-item__price $47.00
+                .act-dropdown__separate
+                .act-dropdown__checkout
+                  a.btn.btn--primary.btn--rounded.act-dropdown__checkout-btn(href='./checkout.html')
+                    | Check Out All
+          .top-act__separate
+          .top-act__btn-wrap
+            button.top-act__btn
+              img.icon.top-act__icon(src='./assets/icons/buy.svg', alt='')
+              span.top-act__title $65.42
+            // Dropdown
+            .act-dropdown
+              .act-dropdown__inner
+                img.act-dropdown__arrow(src='./assets/icons/arrow-up.png', alt='')
+                .act-dropdown__top
+                  h2.act-dropdown__title You have 3 item(s)
+                  a.act-dropdown__view-all(href='./checkout.html') See All
+                .row.row-cols-3.gx-2.act-dropdown__list
+                  // Cart preview item 1
+                  .col
+                    article.cart-preview-item
+                      .cart-preview-item__img-wrap
+                        img.cart-preview-item__thumb(src='./assets/img/product/item-1.png', alt='')
+                      h3.cart-preview-item__title
+                        | Lavazza Coffee Blends
+                      p.cart-preview-item__price $329.00
+                  // Cart preview item 2
+                  .col
+                    article.cart-preview-item
+                      .cart-preview-item__img-wrap
+                        img.cart-preview-item__thumb(src='./assets/img/product/item-2.png', alt='')
+                      h3.cart-preview-item__title
+                        | Coffee Beans Espresso
+                      p.cart-preview-item__price $39.99
+                  // Cart preview item 3
+                  .col
+                    article.cart-preview-item
+                      .cart-preview-item__img-wrap
+                        img.cart-preview-item__thumb(src='./assets/img/product/item-3.png', alt='')
+                      h3.cart-preview-item__title
+                        | Qualit&agrave; Oro Mountain
+                      p.cart-preview-item__price $47.00
+                .act-dropdown__bottom
+                  .act-dropdown__row
+                    span.act-dropdown__label Subtotal
+                    span.act-dropdown__value $415.99
+                  .act-dropdown__row
+                    span.act-dropdown__label Texes
+                    span.act-dropdown__value Free
+                  .act-dropdown__row
+                    span.act-dropdown__label Shipping
+                    span.act-dropdown__value $10.00
+                  .act-dropdown__row.act-dropdown__row--bold
+                    span.act-dropdown__label Total Price
+                    span.act-dropdown__value $425.99
+                .act-dropdown__checkout
+                  a.btn.btn--primary.btn--rounded.act-dropdown__checkout-btn(href='./checkout.html')
+                    | Check Out All
+        .top-act__user
+          img.top-act__avatar(src='https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/365429789_303830972168088_2721226088836158075_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=qh6iIbp_0KwAb7oPgs0&_nc_ht=scontent.fhan14-5.fna&oh=00_AfAsq3huZUB3gol71OlWsAbmnomPAnmoGYjrshQbhFesWw&oe=66226760', alt='')
+          // Dropdown
+          .act-dropdown.top-act__dropdown
+            .act-dropdown__inner.user-menu
+              img.act-dropdown__arrow.top-act__dropdown-arrow(src='./assets/icons/arrow-up.png', alt='')
+              .user-menu__top
+                img.user-menu__avatar(src='https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/365429789_303830972168088_2721226088836158075_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=qh6iIbp_0KwAb7oPgs0&_nc_ht=scontent.fhan14-5.fna&oh=00_AfAsq3huZUB3gol71OlWsAbmnomPAnmoGYjrshQbhFesWw&oe=66226760', alt='')
+                div
+                  p.user-menu__name #{user.fullName}
+                  p @thuan
+              ul.user-menu__list
+                li
+                  a.user-menu__link(href='./profile.html') Profile
+                li
+                  a.user-menu__link(href='./favourite.html') Favourite list
+                li.user-menu__separate
+                  a#switch-theme-btn.user-menu__link(href='#!')
+                    span Dark mode
+                    img.icon.user-menu__icon(src='./assets/icons/sun.svg', alt='')
+                li
+                  a.user-menu__link(href='#!') Settings
+                li.user-menu__separate
+                  a.user-menu__link(href='/logout') Logout
+

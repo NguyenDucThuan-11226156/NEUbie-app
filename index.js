@@ -1,5 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
+const passport = require("passport");
 const methodOverride = require("method-override");
 const path = require("path");
 const routesClient = require("./routes/client/index.route");
@@ -11,6 +12,7 @@ const session = require("express-session");
 const moment = require("moment");
 const database = require("./config/database");
 const system = require("./config/system");
+const configLoginWithGoogle = require("./controllers/client/social/google.controller");
 dotenv.config();
 database.connectDatabase();
 const app = express();
@@ -39,6 +41,14 @@ app.locals.prefixAdmin = system.prefixAdmin;
 routesAdmin(app);
 //routes client
 routesClient(app);
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
+configLoginWithGoogle.configLoginWithGoogle();
 // 404 Not Found
 app.get("*", (req, res) => {
   res.render("client/pages/errors/404", {
