@@ -546,3 +546,37 @@ const updateItemInCart = () => {
 // Hết Cập nhật sản phẩm trong giỏ hàng
 
 //End checkout
+// Post Checkout
+const formCheckout = document.querySelector("[form-checkout]");
+if (formCheckout) {
+  formCheckout.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const fullName = event.target.elements.fullName.value;
+    const school = event.target.elements.school.value;
+    const phone = event.target.elements.phone.value;
+    const address = event.target.elements.address.value;
+
+    const cart = localStorage.getItem("cart");
+    console.log(cart);
+    fetch("/checkout/order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        // Convert JavaScript object to JSON string
+        fullName,
+        school,
+        phone,
+        address,
+        cart,
+      }),
+    })
+      .then((response) => response.json())
+      .then((res) => {
+        console.log(res);
+      });
+  });
+}
+
+// End Post Checkout

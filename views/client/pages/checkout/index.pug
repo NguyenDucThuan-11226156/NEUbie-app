@@ -1,67 +1,66 @@
 extends ../../layouts/default.pug
 
 block main 
-  .checkout-container
-    .row.gy-xl-3
-      .col-8.col-xl-12
-        .cart-info
-          .cart-info__list
-          //- Render Code Bang Javascript
-        .cart-info
-          .cart-info__row
-            span
-              | Price
-              span.cart-info__sub-label (Total)
-            span.finalTotalMoney $191.65
-          .cart-info__row
-            span Shipping
-            span Free
-          .cart-info__row
-            span (Chỉ freeship xung quanh khu vực bách-kinh-xây bán kinh 1km, trường hợp xa quá sẽ phải tự chịu phí ship)
-          .cart-info__separate
-          .cart-info__row
-            span Estimated Total
-            span.finalTotalMoneyShip $201.65
-          a.cart-info__next-btn.btn.btn--primary.btn--rounded(href='./shipping.html')
-            | Đặt hàng
+  form(
+    form-checkout
+  )
+    .checkout-container
+      .row.gy-xl-3
+        .col-8.col-xl-12
+          .cart-info
+            .cart-info__list
+            //- Render Code Bang Javascript
+          .cart-info(style="margin-bottom: 10px")
+            .cart-info__row
+              span
+                | Price
+                span.cart-info__sub-label (Total)
+              span.finalTotalMoney $191.65
+            .cart-info__row
+              span Shipping
+              span Free
+            .cart-info__row
+              span (Chỉ freeship xung quanh khu vực bách-kinh-xây bán kinh 1km, trường hợp xa quá sẽ phải tự chịu phí ship)
+            .cart-info__separate
+            .cart-info__row
+              span Estimated Total
+              span.finalTotalMoneyShip $201.65
+           
 
-      .col-4.col-xl-12
-        .cart-info
-          h2.cart-info__heading.cart-info__heading--lv2 Payment Details
-          p.cart-info__desc
-            | Complete your purchase item by providing your payment details order.
-          form.form.cart-info__form(action='')
-            .form__group
-              label.form__label.form__label--medium(for='email') Họ và tên
-              .form__text-input
-                input#email.form__input(type='email' name='email' placeholder='VD: Nguyễn Văn A' required='')
-                img.form__input-icon-error(src='/icons/form-error.svg' alt='')
-              p.form__error Password must be at least 6 characters
-            .form__group
-              label.form__label.form__label--medium(for='card-holder')
-                | Trường 
-              .form__text-input
-                input#card-holder.form__input(type='text' name='card-holder' placeholder='Đại học Kinh Tế Quốc Dân' required='')
-                img.form__input-icon-error(src='/icons/form-error.svg' alt='')
-              p.form__error Password must be at least 6 characters
-            .form__group
-              label.form__label.form__label--medium(for='card-details')
-                | Số điện thoại
-              .form__text-input
-                input#card-details.form__input(type='text' name='card-details' placeholder='0123456789' required='')
-                img.form__input-icon-error(src='/icons/form-error.svg' alt='')
-              p.form__error Password must be at least 6 characters
-            .form__group
-              label.form__label.form__label--medium(for='card-details')
-                | Nơi nhận hàng (ghi rõ): 
-              .form__text-input
-                input#card-details.form__input(type='text' name='card-details' placeholder='Số 10 Trần Đại Nghĩa' required='')
-                img.form__input-icon-error(src='/icons/form-error.svg' alt='')
-              p.form__error Password must be at least 6 characters
-            .form__group
-              label.form__label.form__label--medium(for='card-details')
-                | Vui lòng chụp lại màn hình đặt hàng thành công trong trường hợp bên mình có sơ xuất! 
-    
+        .col-4.col-xl-12
+          .cart-info
+            h2.cart-info__heading.cart-info__heading--lv2 Payment Details
+            p.cart-info__desc
+              | Complete your purchase item by providing your payment details order.
+            form.form.cart-info__form(action='')
+              .form__group
+                label.form__label.form__label--medium(for='email') Họ và tên
+                .form__text-input
+                  input#email.form__input(type='text' name='fullName' placeholder='VD: Nguyễn Văn A' required='')
+                  img.form__input-icon-error(src='/icons/form-error.svg' alt='')
+              .form__group
+                label.form__label.form__label--medium(for='card-holder')
+                  | Trường 
+                .form__text-input
+                  input#card-holder.form__input(type='text' name='school' placeholder='Đại học Kinh Tế Quốc Dân' required='')
+                  img.form__input-icon-error(src='/icons/form-error.svg' alt='')
+              .form__group
+                label.form__label.form__label--medium(for='card-details')
+                  | Số điện thoại
+                .form__text-input
+                  input#card-details.form__input(type='text' name='phone' placeholder='0123456789' required='')
+                  img.form__input-icon-error(src='/icons/form-error.svg' alt='')
+              .form__group
+                label.form__label.form__label--medium(for='card-details')
+                  | Nơi nhận hàng (ghi rõ): 
+                .form__text-input
+                  input#card-details.form__input(type='text' name='address' placeholder='Số 10 Trần Đại Nghĩa' required='')
+                  img.form__input-icon-error(src='/icons/form-error.svg' alt='')
+              .form__group
+                label.form__label.form__label--medium(for='card-details')
+                  | Vui lòng chụp lại màn hình đặt hàng thành công trong trường hợp bên mình có sơ xuất! 
+              button.cart-info__next-btn.btn.btn--primary.btn--rounded(style="width:100%" type="submit")
+                | Đặt hàng
             
          
 

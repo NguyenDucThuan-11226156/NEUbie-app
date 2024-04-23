@@ -3,9 +3,9 @@ const mongoose = require("mongoose");
 const orderSchema = new mongoose.Schema(
   {
     user_id: String,
-    cart_id: String,
     userInfo: {
       fullName: String,
+      school: String,
       phone: String,
       address: String,
     },
@@ -13,7 +13,6 @@ const orderSchema = new mongoose.Schema(
       {
         product_id: String,
         price: Number,
-        discountPercentage: Number,
         quantity: Number,
       },
     ],

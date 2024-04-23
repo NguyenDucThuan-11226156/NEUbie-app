@@ -11,7 +11,7 @@ block main
         .search-bar.d-none.d-md-flex
           input.search-bar__input(type='text' name='' id='' placeholder='Search for item')
           button.search-bar__submit
-            img.search-bar__icon.icon(src='./assets/icons/search.svg' alt='')
+            img.search-bar__icon.icon(src='/icons/search.svg' alt='')
       // Product info
       .product-container.prod-info-content
         .row
@@ -21,16 +21,16 @@ block main
                 .prod-preview__item
                   img.prod-preview__img(src=product.thumbnail alt='')
                 .prod-preview__item
-                  img.prod-preview__img(src='./assets/img/product/item-2.png' alt='')
+                  img.prod-preview__img(src='/img/product/item-2.png' alt='')
                 .prod-preview__item
-                  img.prod-preview__img(src='./assets/img/product/item-3.png' alt='')
+                  img.prod-preview__img(src='/img/product/item-3.png' alt='')
                 .prod-preview__item
-                  img.prod-preview__img(src='./assets/img/product/item-4.png' alt='')
+                  img.prod-preview__img(src='/img/product/item-4.png' alt='')
               .prod-preview__thumbs
                 img.prod-preview__thumb-img.prod-preview__thumb-img--current(src=product.thumbnail alt='')
-                img.prod-preview__thumb-img(src='./assets/img/product/item-2.png' alt='')
-                img.prod-preview__thumb-img(src='./assets/img/product/item-3.png' alt='')
-                img.prod-preview__thumb-img(src='./assets/img/product/item-4.png' alt='')
+                img.prod-preview__thumb-img(src='/img/product/item-2.png' alt='')
+                img.prod-preview__thumb-img(src='/img/product/item-3.png' alt='')
+                img.prod-preview__thumb-img(src='/img/product/item-4.png' alt='')
           .col-7.col-xl-6.col-lg-12
             form.form(form-add-to-cart product-id=product._id product-price=product.priceNew product-original-price=product.price )
               section.prod-info
@@ -38,7 +38,7 @@ block main
                 .row
                   .col-5.col-xxl-6.col-xl-12
                     .prod-prop
-                      img.prod-prop__icon(src='./assets/icons/star.svg' alt='')
+                      img.prod-prop__icon(src='/icons/star.svg' alt='')
                       h4.prod-prop__title (3.5) 1100 reviews
                     label.form__label.prod-info__label(for='') Số lượng
                       .form__select-wrap
@@ -53,15 +53,15 @@ block main
                   .col-7.col-xxl-6.col-xl-12
                     .prod-props
                       .prod-prop
-                        img.prod-prop__icon.icon(src='./assets/icons/document.svg' alt='')
+                        img.prod-prop__icon.icon(src='/icons/document.svg' alt='')
                         h4.prod-prop__title Compare
                       .prod-prop
-                        img.prod-prop__icon.icon(src='./assets/icons/buy.svg' alt='')
+                        img.prod-prop__icon.icon(src='/icons/buy.svg' alt='')
                         div
                           h4.prod-prop__title Số lượng hàng
                           p.prod-prop__desc #{product.stock}
                       .prod-prop
-                        img.prod-prop__icon.icon(src='./assets/icons/bag.svg' alt='')
+                        img.prod-prop__icon.icon(src='/icons/bag.svg' alt='')
                         div
                           h4.prod-prop__title Pickup
                           p.prod-prop__desc Out of 2 store, today
@@ -74,8 +74,8 @@ block main
                           button.btn.btn--primary.prod-info__add-to-cart(type="submit")
                             | Add to cart
                           button.like-btn.prod-info__like-btn
-                            img.like-btn__icon.icon(src='./assets/icons/heart.svg' alt='')
-                            img.like-btn__icon--liked(src='./assets/icons/heart-red.svg' alt='')
+                            img.like-btn__icon.icon(src='/icons/heart.svg' alt='')
+                            img.like-btn__icon--liked(src='/icons/heart-red.svg' alt='')
       // Product content
       .product-container
         .prod-tab.js-tabs
@@ -107,7 +107,7 @@ block main
                       | assumenda praesentium et! Illum dolorem est rem voluptas
                       | nam! Voluptatem.
                     p
-                      img(src='./assets/img/product/item-1.png' alt='')
+                      img(src='/img/product/item-1.png' alt='')
                       em
                         | Lorem ipsum dolor sit amet, consectetur adipisicing
                         | elit.
@@ -142,7 +142,7 @@ block main
                       | assumenda praesentium et! Illum dolorem est rem voluptas
                       | nam! Voluptatem.
                     p
-                      img(src='./assets/img/product/item-1.png' alt='')
+                      img(src='/img/product/item-1.png' alt='')
                       em
                         | Lorem ipsum dolor sit amet, consectetur adipisicing
                         | elit.
@@ -173,7 +173,7 @@ block main
                       | assumenda praesentium et! Illum dolorem est rem voluptas
                       | nam! Voluptatem.
                     p
-                      img(src='./assets/img/product/item-1.png' alt='')
+                      img(src='/img/product/item-1.png' alt='')
                       em
                         | Lorem ipsum dolor sit amet, consectetur adipisicing
                         | elit.
@@ -192,52 +192,52 @@ block main
                   .col
                     .review-card
                       .review-card__content
-                        img.review-card__avatar(src='./assets/img/avatar/avatar-1.png' alt='')
+                        img.review-card__avatar(src='/img/avatar/avatar-1.png' alt='')
                         .review-card__info
                           h4.review-card__title Jakir Hussen
                           p.review-card__desc
                             | Great product, I love this Coffee Beans
                       .review-card__rating
                         .review-card__star-list
-                          img.review-card__star(src='./assets/icons/star.svg' alt='')
-                          img.review-card__star(src='./assets/icons/star.svg' alt='')
-                          img.review-card__star(src='./assets/icons/star.svg' alt='')
-                          img.review-card__star(src='./assets/icons/star-half.svg' alt='')
-                          img.review-card__star(src='./assets/icons/star-blank.svg' alt='')
+                          img.review-card__star(src='/icons/star.svg' alt='')
+                          img.review-card__star(src='/icons/star.svg' alt='')
+                          img.review-card__star(src='/icons/star.svg' alt='')
+                          img.review-card__star(src='/icons/star-half.svg' alt='')
+                          img.review-card__star(src='/icons/star-blank.svg' alt='')
                         span.review-card__rating-title (3.5) Review
                   // Review card 2
                   .col
                     .review-card
                       .review-card__content
-                        img.review-card__avatar(src='./assets/img/avatar/avatar-2.png' alt='')
+                        img.review-card__avatar(src='/img/avatar/avatar-2.png' alt='')
                         .review-card__info
                           h4.review-card__title Jubed Ahmed
                           p.review-card__desc
                             | Awesome Coffee, I love this Coffee Beans
                       .review-card__rating
                         .review-card__star-list
-                          img.review-card__star(src='./assets/icons/star.svg' alt='')
-                          img.review-card__star(src='./assets/icons/star.svg' alt='')
-                          img.review-card__star(src='./assets/icons/star.svg' alt='')
-                          img.review-card__star(src='./assets/icons/star-half.svg' alt='')
-                          img.review-card__star(src='./assets/icons/star-blank.svg' alt='')
+                          img.review-card__star(src='/icons/star.svg' alt='')
+                          img.review-card__star(src='/icons/star.svg' alt='')
+                          img.review-card__star(src='/icons/star.svg' alt='')
+                          img.review-card__star(src='/icons/star-half.svg' alt='')
+                          img.review-card__star(src='/icons/star-blank.svg' alt='')
                         span.review-card__rating-title (3.5) Review
                   // Review card 3
                   .col
                     .review-card
                       .review-card__content
-                        img.review-card__avatar(src='./assets/img/avatar/avatar-3.png' alt='')
+                        img.review-card__avatar(src='/img/avatar/avatar-3.png' alt='')
                         .review-card__info
                           h4.review-card__title Delwar Hussain
                           p.review-card__desc
                             | Great product, I like this Coffee Beans
                       .review-card__rating
                         .review-card__star-list
-                          img.review-card__star(src='./assets/icons/star.svg' alt='')
-                          img.review-card__star(src='./assets/icons/star.svg' alt='')
-                          img.review-card__star(src='./assets/icons/star.svg' alt='')
-                          img.review-card__star(src='./assets/icons/star-half.svg' alt='')
-                          img.review-card__star(src='./assets/icons/star-blank.svg' alt='')
+                          img.review-card__star(src='/icons/star.svg' alt='')
+                          img.review-card__star(src='/icons/star.svg' alt='')
+                          img.review-card__star(src='/icons/star.svg' alt='')
+                          img.review-card__star(src='/icons/star-half.svg' alt='')
+                          img.review-card__star(src='/icons/star-blank.svg' alt='')
                         span.review-card__rating-title (3.5) Review
             .prod-tab__content
               .prod-content
@@ -249,10 +249,10 @@ block main
                     article.product-card
                       .product-card__img-wrap
                         a(href='./product-detail.html')
-                          img.product-card__thumb(src='./assets/img/product/item-1.png' alt='')
+                          img.product-card__thumb(src='/img/product/item-1.png' alt='')
                         button.like-btn.product-card__like-btn
-                          img.like-btn__icon.icon(src='./assets/icons/heart.svg' alt='')
-                          img.like-btn__icon--liked(src='./assets/icons/heart-red.svg' alt='')
+                          img.like-btn__icon.icon(src='/icons/heart.svg' alt='')
+                          img.like-btn__icon--liked(src='/icons/heart-red.svg' alt='')
                       h3.product-card__title
                         a(href='./product-detail.html')
                           | Coffee Beans - Espresso Arabica and Robusta
@@ -260,33 +260,33 @@ block main
                       p.product-card__brand Lavazza
                       .product-card__row
                         span.product-card__price $47.00
-                        img.product-card__star(src='./assets/icons/star.svg' alt='')
+                        img.product-card__star(src='/icons/star.svg' alt='')
                         span.product-card__score 4.3
                   // Product card 2
                   .col
                     article.product-card
                       .product-card__img-wrap
                         a(href='./product-detail.html')
-                          img.product-card__thumb(src='./assets/img/product/item-2.png' alt='')
+                          img.product-card__thumb(src='/img/product/item-2.png' alt='')
                         button.like-btn.product-card__like-btn
-                          img.like-btn__icon.icon(src='./assets/icons/heart.svg' alt='')
-                          img.like-btn__icon--liked(src='./assets/icons/heart-red.svg' alt='')
+                          img.like-btn__icon.icon(src='/icons/heart.svg' alt='')
+                          img.like-btn__icon--liked(src='/icons/heart-red.svg' alt='')
                       h3.product-card__title
                         a(href='./product-detail.html') Lavazza Coffee Blends - Try the Italian Espresso
                       p.product-card__brand Lavazza
                       .product-card__row
                         span.product-card__price $53.00
-                        img.product-card__star(src='./assets/icons/star.svg' alt='')
+                        img.product-card__star(src='/icons/star.svg' alt='')
                         span.product-card__score 3.4
                   // Product card 3
                   .col
                     article.product-card
                       .product-card__img-wrap
                         a(href='./product-detail.html')
-                          img.product-card__thumb(src='./assets/img/product/item-3.png' alt='')
+                          img.product-card__thumb(src='/img/product/item-3.png' alt='')
                         button.like-btn.like-btn--liked.product-card__like-btn
-                          img.like-btn__icon.icon(src='./assets/icons/heart.svg' alt='')
-                          img.like-btn__icon--liked(src='./assets/icons/heart-red.svg' alt='')
+                          img.like-btn__icon.icon(src='/icons/heart.svg' alt='')
+                          img.like-btn__icon--liked(src='/icons/heart-red.svg' alt='')
                       h3.product-card__title
                         a(href='./product-detail.html')
                           | Lavazza - Caff&egrave; Espresso Black Tin - Ground
@@ -294,17 +294,17 @@ block main
                       p.product-card__brand Welikecoffee
                       .product-card__row
                         span.product-card__price $99.99
-                        img.product-card__star(src='./assets/icons/star.svg' alt='')
+                        img.product-card__star(src='/icons/star.svg' alt='')
                         span.product-card__score 5.0
                   // Product card 4
                   .col
                     article.product-card
                       .product-card__img-wrap
                         a(href='./product-detail.html')
-                          img.product-card__thumb(src='./assets/img/product/item-4.png' alt='')
+                          img.product-card__thumb(src='/img/product/item-4.png' alt='')
                         button.like-btn.product-card__like-btn
-                          img.like-btn__icon.icon(src='./assets/icons/heart.svg' alt='')
-                          img.like-btn__icon--liked(src='./assets/icons/heart-red.svg' alt='')
+                          img.like-btn__icon.icon(src='/icons/heart.svg' alt='')
+                          img.like-btn__icon--liked(src='/icons/heart-red.svg' alt='')
                       h3.product-card__title
                         a(href='./product-detail.html')
                           | Qualit&agrave; Oro Mountain Grown - Espresso Coffee
@@ -312,17 +312,17 @@ block main
                       p.product-card__brand Lavazza
                       .product-card__row
                         span.product-card__price $38.65
-                        img.product-card__star(src='./assets/icons/star.svg' alt='')
+                        img.product-card__star(src='/icons/star.svg' alt='')
                         span.product-card__score 4.4
                   // Product card 5
                   .col
                     article.product-card
                       .product-card__img-wrap
                         a(href='./product-detail.html')
-                          img.product-card__thumb(src='./assets/img/product/item-1.png' alt='')
+                          img.product-card__thumb(src='/img/product/item-1.png' alt='')
                         button.like-btn.product-card__like-btn
-                          img.like-btn__icon.icon(src='./assets/icons/heart.svg' alt='')
-                          img.like-btn__icon--liked(src='./assets/icons/heart-red.svg' alt='')
+                          img.like-btn__icon.icon(src='/icons/heart.svg' alt='')
+                          img.like-btn__icon--liked(src='/icons/heart-red.svg' alt='')
                       h3.product-card__title
                         a(href='./product-detail.html')
                           | Coffee Beans - Espresso Arabica and Robusta
@@ -330,21 +330,21 @@ block main
                       p.product-card__brand Lavazza
                       .product-card__row
                         span.product-card__price $47.00
-                        img.product-card__star(src='./assets/icons/star.svg' alt='')
+                        img.product-card__star(src='/icons/star.svg' alt='')
                         span.product-card__score 4.3
                   // Product card 6
                   .col
                     article.product-card
                       .product-card__img-wrap
                         a(href='./product-detail.html')
-                          img.product-card__thumb(src='./assets/img/product/item-2.png' alt='')
+                          img.product-card__thumb(src='/img/product/item-2.png' alt='')
                         button.like-btn.product-card__like-btn
-                          img.like-btn__icon.icon(src='./assets/icons/heart.svg' alt='')
-                          img.like-btn__icon--liked(src='./assets/icons/heart-red.svg' alt='')
+                          img.like-btn__icon.icon(src='/icons/heart.svg' alt='')
+                          img.like-btn__icon--liked(src='/icons/heart-red.svg' alt='')
                       h3.product-card__title
                         a(href='./product-detail.html') Lavazza Coffee Blends - Try the Italian Espresso
                       p.product-card__brand Lavazza
                       .product-card__row
                         span.product-card__price $53.00
-                        img.product-card__star(src='./assets/icons/star.svg' alt='')
+                        img.product-card__star(src='/icons/star.svg' alt='')
                         span.product-card__score 3.4
