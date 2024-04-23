@@ -10,7 +10,6 @@ module.exports.index = async (req, res) => {
 };
 // [GET] /logout
 module.exports.logOut = async (req, res) => {
-  console.log("Hello");
   res.clearCookie("tokenUser");
   await User.updateOne(
     {

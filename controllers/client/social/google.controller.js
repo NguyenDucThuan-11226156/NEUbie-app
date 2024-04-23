@@ -8,7 +8,7 @@ module.exports.configLoginWithGoogle = () => {
       {
         clientID: process.env.GOOGLE_APP_CLIENT_ID,
         clientSecret: process.env.GOOGLE_APP_CLIENT_SECRET,
-        callbackURL: `${process.env.DOMAIN}/google/redirect`,
+        callbackURL: process.env.DOMAIN_GOOGLE,
       },
       async function (accessToken, refreshToken, profile, cb) {
         const type = "GOOGLE";
@@ -22,10 +22,6 @@ module.exports.configLoginWithGoogle = () => {
         };
         let user = await googleHelper.upsertUserSocialMedia(type, dataRaw);
         return cb(null, user);
-
-        // User.findOrCreate({ googleId: profile.id }, function (err, user) {
-        //   return cb(err, user);
-        // });
       }
     )
   );

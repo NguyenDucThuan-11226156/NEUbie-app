@@ -1,6 +1,5 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-console.log("Hello");
 function load(selector, path) {
   const cached = localStorage.getItem(path);
   if (cached) {
@@ -178,7 +177,6 @@ window.addEventListener("template-loaded", () => {
 const switchBtn = document.querySelector("#switch-theme-btn");
 if (switchBtn) {
   switchBtn.onclick = function () {
-    console.log("hi");
     const isDark = localStorage.dark === "true";
     document.querySelector("html").classList.toggle("dark", !isDark);
     localStorage.setItem("dark", !isDark);
@@ -222,3 +220,165 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 // End Slider Detail
+
+const logOutButton = document.querySelector("[logOutButton]");
+if (logOutButton) {
+  logOutButton.addEventListener("click", () => {
+    localStorage.removeItem("cart");
+  });
+}
+// Cart
+const cart = localStorage.getItem("cart");
+if (!cart) {
+  localStorage.setItem("cart", JSON.stringify([]));
+}
+// showMiniCart
+const showMiniCart = () => {
+  const miniCart = document.querySelector("[mini-cart]");
+  if (miniCart) {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    miniCart.innerHTML = cart.length;
+  }
+};
+showMiniCart();
+// Show thông báo thành công
+const alertAddCartSusscess = () => {
+  const elementAlert = document.querySelector("[alert-add-cart-susscess]");
+  if (elementAlert) {
+    elementAlert.classList.remove("alert-hidden");
+
+    setTimeout(() => {
+      elementAlert.classList.add("alert-hidden");
+    }, 3000);
+  }
+};
+// Tổng tiền
+const calculateTotalMoney = () => {
+  let totalMoney = 0;
+  let totalSubMoney = 0;
+  const elementTotalMoney = document.querySelector(".total_money");
+  const elementTotalMoneyInCart = document.querySelector(".totalPrice");
+  const elementTotalSubMoneyInCart = document.querySelector(".subTotal");
+  if (elementTotalMoney) {
+    const cart = JSON.parse(localStorage.getItem("cart"));
+    totalMoney = cart.reduce(
+      (total, item) => total + item.quantity * item.priceNew,
+      0
+    );
+    totalSubMoney = cart.reduce(
+      (total, item) => total + item.quantity * item.price,
+      0
+    );
+    elementTotalMoney.innerHTML = totalMoney;
+    elementTotalMoneyInCart.innerHTML = totalMoney;
+    elementTotalSubMoneyInCart.innerHTML = totalSubMoney;
+  }
+};
+calculateTotalMoney();
+// Thêm tour vào giỏ hàng
+const formAddToCart = document.querySelector("[form-add-to-cart]");
+if (formAddToCart) {
+  formAddToCart.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const productId = formAddToCart.getAttribute("product-id");
+    const productPrice = formAddToCart.getAttribute("product-price");
+    const productOriginalPrice = formAddToCart.getAttribute(
+      "product-original-price"
+    );
+
+    const quantity = parseInt(event.target.elements.quantity.value) || 1;
+
+    if (productId && quantity) {
+      const cart = JSON.parse(localStorage.getItem("cart"));
+
+      const existProduct = cart.find((item) => item.productId == productId);
+
+      if (existProduct) {
+        existProduct.quantity = existProduct.quantity + quantity;
+      } else {
+        const data = {
+          productId: productId,
+          quantity: quantity,
+          priceNew: productPrice,
+          price: productOriginalPrice,
+        };
+        cart.push(data);
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alertAddCartSusscess();
+      showMiniCart();
+      calculateTotalMoney();
+      getProductInCart();
+    }
+  });
+}
+// End Cart
+//Dropdown Cart
+const getProductInCart = async () => {
+  const elementDropDowns = document.querySelectorAll(".act-dropdown");
+  if (elementDropDowns.length > 0) {
+    const carts = JSON.parse(localStorage.getItem("cart"));
+    const displayedProductIds = new Set();
+    for (const elementDropDown of elementDropDowns) {
+      const title = elementDropDown.querySelector(".act-dropdown__title");
+      const numberProductInCart = carts.length;
+      title.innerHTML =
+        numberProductInCart === 1
+          ? `You have ${numberProductInCart} item`
+          : `You have ${numberProductInCart} items`;
+      const elementDropDownList = elementDropDown.querySelector(
+        ".act-dropdown__list"
+      );
+      if (elementDropDownList) {
+        for (const cartItem of carts) {
+          if (!displayedProductIds.has(cartItem.productId)) {
+            const product = await fetchProduct(cartItem.productId);
+            if (product) {
+              const existingProduct = elementDropDownList.querySelector(
+                `[data-product-id="${cartItem.productId}"]`
+              );
+              if (existingProduct) {
+                existingProduct.remove();
+              }
+              const innerHTML = `<div class="col" data-product-id="${
+                cartItem.productId
+              }">
+                                  <article class="cart-preview-item">
+                                      <div class="cart-preview-item__img-wrap"><img class="cart-preview-item__thumb" src="${
+                                        product.thumbnail
+                                      }" alt="" /></div>
+                                      <h3 class="cart-preview-item__title">${
+                                        product.title
+                                      }</h3>
+                                      <p class="cart-preview-item__price">${(
+                                        product.price *
+                                        (1 - product.discountPercentage / 100)
+                                      ).toFixed(0)}</p>
+                                      <p>Quantity: ${cartItem.quantity}</p>
+                                  </article>
+                                </div>`;
+              elementDropDownList.insertAdjacentHTML("beforeend", innerHTML);
+              displayedProductIds.add(cartItem.productId);
+            }
+          }
+        }
+      }
+    }
+  }
+};
+// Function to fetch product data
+const fetchProduct = async (productId) => {
+  try {
+    const response = await fetch(`/products/${productId}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    return null;
+  }
+};
+getProductInCart();
+//End Dropdown Cart

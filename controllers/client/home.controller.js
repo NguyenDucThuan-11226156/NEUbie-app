@@ -5,7 +5,7 @@ module.exports.index = async (req, res) => {
   if (req.cookies?.tokenUser) {
     const user = await User.findOne({
       tokenUser: req.cookies?.tokenUser,
-    });
+    }).select("-password");
     res.locals.user = user;
   }
   const products = await Product.find({

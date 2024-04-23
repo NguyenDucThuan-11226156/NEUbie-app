@@ -4,7 +4,7 @@
     button.top-bar__more.d-none.d-lg-block.js-toggle(toggle-target='#navbar')
       img.icon.top-bar__more-icon(src='./assets/icons/more.svg' alt='')
     // Logo
-    a.logo.top-bar__logo(href='./')
+    a.logo.top-bar__logo(href='/')
       img.logo__img.top-bar__logo-img(src='https://scontent.fhan14-5.fna.fbcdn.net/v/t39.30808-6/365429789_303830972168088_2721226088836158075_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=5f2048&_nc_ohc=qh6iIbp_0KwAb7oPgs0&_nc_ht=scontent.fhan14-5.fna&oh=00_AfAsq3huZUB3gol71OlWsAbmnomPAnmoGYjrshQbhFesWw&oe=66226760' alt='NEUbie')
       h1.logo__title.top-bar__logo-title NEUbie
     // Navbar
@@ -2354,39 +2354,16 @@
           .top-act__btn-wrap
             button.top-act__btn
               img.icon.top-act__icon(src='./assets/icons/heart.svg', alt='')
-              span.top-act__title 03
+              span(class="top-act__title" mini-cart) 03
             // Dropdown
             .act-dropdown
               .act-dropdown__inner
                 img.act-dropdown__arrow(src='./assets/icons/arrow-up.png', alt='')
                 .act-dropdown__top
-                  h2.act-dropdown__title You have 3 item(s)
+                  h2.act-dropdown__title 
                   a.act-dropdown__view-all(href='./favourite.html') See All
                 .row.row-cols-3.gx-2.act-dropdown__list
-                  // Cart preview item 1
-                  .col
-                    article.cart-preview-item
-                      .cart-preview-item__img-wrap
-                        img.cart-preview-item__thumb(src='./assets/img/product/item-1.png', alt='')
-                      h3.cart-preview-item__title
-                        | Lavazza Coffee Blends
-                      p.cart-preview-item__price $329.00
-                  // Cart preview item 2
-                  .col
-                    article.cart-preview-item
-                      .cart-preview-item__img-wrap
-                        img.cart-preview-item__thumb(src='./assets/img/product/item-2.png', alt='')
-                      h3.cart-preview-item__title
-                        | Coffee Beans Espresso
-                      p.cart-preview-item__price $39.99
-                  // Cart preview item 3
-                  .col
-                    article.cart-preview-item
-                      .cart-preview-item__img-wrap
-                        img.cart-preview-item__thumb(src='./assets/img/product/item-3.png', alt='')
-                      h3.cart-preview-item__title
-                        | Qualit&agrave; Oro Mountain
-                      p.cart-preview-item__price $47.00
+                 
                 .act-dropdown__separate
                 .act-dropdown__checkout
                   a.btn.btn--primary.btn--rounded.act-dropdown__checkout-btn(href='./checkout.html')
@@ -2395,52 +2372,30 @@
           .top-act__btn-wrap
             button.top-act__btn
               img.icon.top-act__icon(src='./assets/icons/buy.svg', alt='')
-              span.top-act__title $65.42
+              span.top-act__title.total_money 
             // Dropdown
             .act-dropdown
               .act-dropdown__inner
                 img.act-dropdown__arrow(src='./assets/icons/arrow-up.png', alt='')
                 .act-dropdown__top
-                  h2.act-dropdown__title You have 3 item(s)
+                  h2.act-dropdown__title 
                   a.act-dropdown__view-all(href='./checkout.html') See All
                 .row.row-cols-3.gx-2.act-dropdown__list
-                  // Cart preview item 1
-                  .col
-                    article.cart-preview-item
-                      .cart-preview-item__img-wrap
-                        img.cart-preview-item__thumb(src='./assets/img/product/item-1.png', alt='')
-                      h3.cart-preview-item__title
-                        | Lavazza Coffee Blends
-                      p.cart-preview-item__price $329.00
-                  // Cart preview item 2
-                  .col
-                    article.cart-preview-item
-                      .cart-preview-item__img-wrap
-                        img.cart-preview-item__thumb(src='./assets/img/product/item-2.png', alt='')
-                      h3.cart-preview-item__title
-                        | Coffee Beans Espresso
-                      p.cart-preview-item__price $39.99
-                  // Cart preview item 3
-                  .col
-                    article.cart-preview-item
-                      .cart-preview-item__img-wrap
-                        img.cart-preview-item__thumb(src='./assets/img/product/item-3.png', alt='')
-                      h3.cart-preview-item__title
-                        | Qualit&agrave; Oro Mountain
-                      p.cart-preview-item__price $47.00
+                 
+                  
                 .act-dropdown__bottom
                   .act-dropdown__row
                     span.act-dropdown__label Subtotal
-                    span.act-dropdown__value $415.99
+                    span.act-dropdown__value.subTotal 
                   .act-dropdown__row
-                    span.act-dropdown__label Texes
-                    span.act-dropdown__value Free
+                    span.act-dropdown__label Discount
+                    span.act-dropdown__value 0
                   .act-dropdown__row
                     span.act-dropdown__label Shipping
-                    span.act-dropdown__value $10.00
+                    span.act-dropdown__value Free
                   .act-dropdown__row.act-dropdown__row--bold
                     span.act-dropdown__label Total Price
-                    span.act-dropdown__value $425.99
+                    span.act-dropdown__value.totalPrice
                 .act-dropdown__checkout
                   a.btn.btn--primary.btn--rounded.act-dropdown__checkout-btn(href='./checkout.html')
                     | Check Out All
@@ -2467,5 +2422,5 @@
                 li
                   a.user-menu__link(href='#!') Settings
                 li.user-menu__separate
-                  a.user-menu__link(href='/logout') Logout
+                  a.user-menu__link(href='/logout' logOutButton) Logout
 

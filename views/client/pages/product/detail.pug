@@ -1,5 +1,9 @@
 extends ../../layouts/default.pug
 block main
+  div(
+    class="alert alert-success alert-hidden"
+    alert-add-cart-susscess
+  ) Đã thêm tour vào giỏ hàng! <span close-alert>x</span>
   main.product-page
     .container
       // Search bar
@@ -28,7 +32,7 @@ block main
                 img.prod-preview__thumb-img(src='./assets/img/product/item-3.png' alt='')
                 img.prod-preview__thumb-img(src='./assets/img/product/item-4.png' alt='')
           .col-7.col-xl-6.col-lg-12
-            form.form(action='')
+            form.form(form-add-to-cart product-id=product._id product-price=product.priceNew product-original-price=product.price )
               section.prod-info
                 h1.prod-info__heading #{product.title}
                 .row
@@ -36,23 +40,16 @@ block main
                     .prod-prop
                       img.prod-prop__icon(src='./assets/icons/star.svg' alt='')
                       h4.prod-prop__title (3.5) 1100 reviews
-                    label.form__label.prod-info__label(for='') Size/Weight
-                    .filter__form-group
+                    label.form__label.prod-info__label(for='') Số lượng
                       .form__select-wrap
-                        .form__select(style='--width: 146px')
-                          | 500g
-                          img.form__select-arrow.icon(src='./assets/icons/select-arrow.svg' alt='')
-                        .form__select
-                          | Gram
-                          img.form__select-arrow.icon(src='./assets/icons/select-arrow.svg' alt='')
-                    .filter__form-group
-                      .form__tags
-                        button.form__tag.prod-info__tag
-                          | Small
-                        button.form__tag.prod-info__tag
-                          | Medium
-                        button.form__tag.prod-info__tag
-                          | Large
+                        input(
+                        class="form-control mb-2"
+                        type="number"
+                        name="quantity"
+                        value="1"
+                        min="1"
+                        max=product.stock
+                      )
                   .col-7.col-xxl-6.col-xl-12
                     .prod-props
                       .prod-prop
@@ -61,8 +58,8 @@ block main
                       .prod-prop
                         img.prod-prop__icon.icon(src='./assets/icons/buy.svg' alt='')
                         div
-                          h4.prod-prop__title Delivery
-                          p.prod-prop__desc From $6 for 1-3 days
+                          h4.prod-prop__title Số lượng hàng
+                          p.prod-prop__desc #{product.stock}
                       .prod-prop
                         img.prod-prop__icon.icon(src='./assets/icons/bag.svg' alt='')
                         div
@@ -74,7 +71,7 @@ block main
                           span.prod-info__tax - #{product.discountPercentage} %
                         p.prod-info__total-price #{product.priceNew}
                         .prod-info__row
-                          button.btn.btn--primary.prod-info__add-to-cart
+                          button.btn.btn--primary.prod-info__add-to-cart(type="submit")
                             | Add to cart
                           button.like-btn.prod-info__like-btn
                             img.like-btn__icon.icon(src='./assets/icons/heart.svg' alt='')

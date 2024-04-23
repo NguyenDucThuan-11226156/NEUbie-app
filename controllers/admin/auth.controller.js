@@ -14,8 +14,6 @@ module.exports.login = async (req, res) => {
 module.exports.postLogin = async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
-  console.log(email);
-  console.log(password);
   const user = await Account.findOne({
     email: email,
     deleted: false,
@@ -50,8 +48,6 @@ module.exports.signUp = async (req, res) => {
   });
 };
 module.exports.createSignUp = async (req, res) => {
-  console.log(req.body);
-
   const { password, confirmPassword } = req.body;
   if (password !== confirmPassword) {
     req.flash("error", "Mật khẩu không trùng khớp");

@@ -39,8 +39,6 @@ if (deleteProductButtons.length > 0) {
   deleteProductButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const id = button.getAttribute("product_id");
-
-      console.log(id);
       fetch(`/admin/products/delete/${id}`, {
         method: "DELETE",
       })
