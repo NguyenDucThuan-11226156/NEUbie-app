@@ -28,6 +28,7 @@ app.use(
 );
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 //flash
 app.use(cookieParser("Dat Gi cung duoc"));
 app.use(session({ cookie: { maxAge: 60000 } }));

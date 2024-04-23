@@ -2,12 +2,14 @@ const productRoutes = require("./product.route");
 const homeRoutes = require("./home.route");
 const passport = require("passport");
 const authRoutes = require("./auth.route");
+const checkoutRoutes = require("./checkout.route");
 const authMiddleware = require("../../middlewares/client/auth.middleware");
 
 module.exports = (app) => {
   app.use("/", homeRoutes);
   app.use("/products", authMiddleware.requireAuth, productRoutes);
   app.use("/", authRoutes);
+  app.use("/checkout", checkoutRoutes);
   app.get(
     "/auth/google",
     passport.authenticate("google", { scope: ["profile", "email"] })

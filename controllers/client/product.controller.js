@@ -10,7 +10,6 @@ module.exports.detail = async (req, res) => {
     });
     product.priceNew = product.price * (1 - product.discountPercentage / 100);
     product.priceNew = product.priceNew.toFixed(0);
-    console.log(product);
     res.render("client/pages/product/detail", {
       pageTitle: "Chi tiết sản phẩm",
       product: product,

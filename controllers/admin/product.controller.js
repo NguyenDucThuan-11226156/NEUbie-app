@@ -29,7 +29,6 @@ module.exports.createPost = async (req, res) => {
 // [DELETE] delete/:id
 module.exports.deleteItem = async (req, res) => {
   const id = req.params.id;
-  console.log(id);
   try {
     const deleteItem = await Product.updateOne(
       { _id: id }, // Filter to match the item with the given ID
@@ -73,8 +72,6 @@ module.exports.edit = async (req, res) => {
 module.exports.editProduct = async (req, res) => {
   try {
     const id = req.params.id;
-    console.log(id);
-    console.log(req.body);
 
     const product = await Product.findOneAndUpdate(
       {

@@ -14,7 +14,6 @@ module.exports.create = async (req, res) => {
 };
 // [POST] admin/roles/create
 module.exports.createPost = async (req, res) => {
-  console.log(req.body);
   const role = new Roles(req.body);
   await role.save();
   req.flash("success", "Tạo mới vai trò thành công !");
