@@ -347,6 +347,7 @@ const getProductInCart = async () => {
       const elementDropDownList = elementDropDown.querySelector(
         ".act-dropdown__list"
       );
+
       if (elementDropDownList) {
         for (const cartItem of carts) {
           if (!displayedProductIds.has(cartItem.productId)) {
@@ -575,6 +576,9 @@ if (formCheckout) {
       .then((response) => response.json())
       .then((res) => {
         console.log(res);
+        window.location.href = "/";
+        localStorage.removeItem("cart");
+        window.alert("Đặt hàng thành công");
       });
   });
 }
